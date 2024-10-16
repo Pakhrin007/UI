@@ -116,14 +116,14 @@ class Signup extends StatelessWidget {
                           ],
                         ),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Sign-Up",
                           style: TextStyle(color: Colors.white, fontSize: 22),
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     const Align(
@@ -139,7 +139,7 @@ class Signup extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) => Signin()));
                           },
-                          child: Text("sign-In")),
+                          child: const Text("sign-In")),
                     )
                   ],
                 ),
