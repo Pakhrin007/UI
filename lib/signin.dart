@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/signup.dart';
 
 class Signin extends StatelessWidget {
   const Signin({super.key});
@@ -81,7 +82,7 @@ class Signin extends StatelessWidget {
                     ),
                     Align(
                       alignment: Alignment.centerRight,
-                      child: Text("Forget Passowrd"),
+                      child: Text("Forget Password"),
                     ),
                     SizedBox(
                       height: 20,
@@ -114,11 +115,24 @@ class Signin extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text("Don't have account?"),
-                          Text("Singn-Up")
+                          Text("Don't have an account?"),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Signup()));
+                            },
+                            child: Text(
+                              "Sign-Up",
+                              style: TextStyle(
+                                  color: Color(0xffB81736),
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
