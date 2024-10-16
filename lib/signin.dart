@@ -20,7 +20,7 @@ class Signin extends StatelessWidget {
               ],
             ),
           ),
-          child: Padding(
+          child: const Padding(
             padding: EdgeInsets.only(top: 60, left: 30),
             child: Text(
               "Hello\nSignIn!",
@@ -49,10 +49,10 @@ class Signin extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         label: Text(
                           "Gmail",
@@ -65,8 +65,8 @@ class Signin extends StatelessWidget {
                             top: 50), // Adds a gap between label and text box
                       ),
                     ),
-                    SizedBox(height: 30),
-                    TextField(
+                    const SizedBox(height: 30),
+                    const TextField(
                       decoration: InputDecoration(
                           label: Text(
                             "Password",
@@ -77,14 +77,14 @@ class Signin extends StatelessWidget {
                           ),
                           contentPadding: EdgeInsets.only(top: 50)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.centerRight,
                       child: Text("Forget Password"),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Container(
@@ -92,21 +92,21 @@ class Signin extends StatelessWidget {
                       width: 300,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           colors: [
                             Color(0xffB81736),
                             Color(0xff2A1639),
                           ],
                         ),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Sign-In",
                           style: TextStyle(color: Colors.white, fontSize: 22),
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 300,
                     ),
                     Align(
@@ -115,7 +115,7 @@ class Signin extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text("Don't have an account?"),
+                          const Text("Don't have an account?"),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -123,7 +123,7 @@ class Signin extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (context) => Signup()));
                             },
-                            child: Text(
+                            child: const Text(
                               "Sign-Up",
                               style: TextStyle(
                                   color: Color(0xffB81736),
