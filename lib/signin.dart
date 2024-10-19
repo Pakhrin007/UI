@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:login/signup.dart';
 
 class Signin extends StatelessWidget {
-  const Signin({super.key});
+  Signin({super.key});
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class Signin extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.only(left: 18, right: 18),
+              padding: const EdgeInsets.only(left: 18, right: 18),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -52,8 +55,9 @@ class Signin extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: emailController,
+                      decoration: const InputDecoration(
                         label: Text(
                           "Gmail",
                           style: TextStyle(
@@ -61,13 +65,14 @@ class Signin extends StatelessWidget {
                             color: Color(0xffB81736),
                           ),
                         ),
-                        contentPadding: EdgeInsets.only(
-                            top: 50), // Adds a gap between label and text box
+                        contentPadding: EdgeInsets.only(top: 50),
                       ),
                     ),
                     const SizedBox(height: 30),
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
                           label: Text(
                             "Password",
                             style: TextStyle(
@@ -87,22 +92,53 @@ class Signin extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      height: 50,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color(0xffB81736),
-                            Color(0xff2A1639),
-                          ],
+                    GestureDetector(
+                      onTap: () {
+                        // Perform the validation
+                        if (emailController.text == 'aryan@gmail.com' &&
+                            passwordController.text == 'aryan@123') {
+                          // Navigate to the next page if credentials are correct
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SuccessPage())); // Define SuccessPage for correct login
+                        } else {
+                          // Show error dialog if credentials are incorrect
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('Error'),
+                              content: const Text('Invalid email or password'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color(0xffB81736),
+                              Color(0xff2A1639),
+                            ],
+                          ),
                         ),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          "Sign-In",
-                          style: TextStyle(color: Colors.white, fontSize: 22),
+                        child: const Center(
+                          child: Text(
+                            "Sign-In",
+                            style: TextStyle(color: Colors.white, fontSize: 22),
+                          ),
                         ),
                       ),
                     ),
@@ -121,7 +157,7 @@ class Signin extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Signup()));
+                                      builder: (context) => const Signup()));
                             },
                             child: const Text(
                               "Sign-Up",
@@ -141,5 +177,23 @@ class Signin extends StatelessWidget {
         ),
       ],
     ));
+  }
+}
+
+// SuccessPage: Define a simple success page to navigate to on successful login
+class SuccessPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Welcome'),
+      ),
+      body: const Center(
+        child: Text(
+          'Login Successful!',
+          style: TextStyle(fontSize: 24, color: Colors.green),
+        ),
+      ),
+    );
   }
 }
