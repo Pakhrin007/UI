@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/learn.dart';
+import 'package:login/scrollview.dart';
 import 'package:login/welocme.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const Learn(),
+      home: const JustView(),
     );
   }
 }
