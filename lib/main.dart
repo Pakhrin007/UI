@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login/learn.dart';
 import 'package:login/scrollview.dart';
 import 'package:login/welocme.dart';
+import 'package:login/listview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const JustView(),
+      home: const Lists(),
     );
   }
 }
