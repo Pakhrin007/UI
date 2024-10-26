@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/cardswid.dart';
+import 'package:login/dice.dart';
 import 'package:login/learn.dart';
 import 'package:login/scrollview.dart';
 import 'package:login/welocme.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const Cardswid(),
+      home: const Dice(),
     );
   }
 }
